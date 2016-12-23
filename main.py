@@ -160,7 +160,7 @@ def main():
             #https://r16---sn-bvvbax-hn26.googlevideo.com/
             #newlink = 'https://r2---sn-bvvbax-hn26' + thelink[18:]
 
-            filename = theName + "_" + str(n) + ".mp4"
+            filename = theName.split(".")[0] + "_" + str(n) + ".mp4"
 
             print("Downloading " + filename + "...")
 
