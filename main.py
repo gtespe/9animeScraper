@@ -75,8 +75,10 @@ def main():
     nums = map(int, num_string.split(' '))
 
     #setup driver
-    #ffprofile = webdriver.FirefoxProfile("./366j48ag.selenium")
-    driver= webdriver.Firefox()#firefox_profile=ffprofile)
+    ffprofile = webdriver.FirefoxProfile()
+    ffprofile.set_preference("http.response.timeout", 10)
+    ffprofile.set_preference("dom.max_script_run_time", 10)
+    driver= webdriver.Firefox(firefox_profile=ffprofile)
 
     # Cycle through the list of ints (Shows)
     for which in nums:
@@ -141,6 +143,7 @@ def main():
 
             #get the page in driver
             driver.get("http://9anime.to" + episode_links[n-1])
+
             soup = BeautifulSoup(driver.page_source, "html.parser")
 
             #return to blank to prevent page load
